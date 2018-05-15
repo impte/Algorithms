@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class DepthFirstPathsTest {
     public static void main(String[] args) throws IOException {
-        In in = new In("C:\\Users\\xutong\\Desktop\\xxxx.txt");
+        In in = new In("C:\\Users\\xutong\\Desktop\\test txt\\xxxx.txt");
         Graph graph = new Graph(in);
         DepthFirstPaths dfp = new DepthFirstPaths(graph, 0);
         Iterator<Integer> its = dfp.pathTo(2).iterator();

@@ -1,6 +1,8 @@
 package com.impte.algorithms.graph;
 
-public class Queue<Value> {
+import java.util.Iterator;
+
+public class Queue<Value> implements Iterable<Value> {
 
     private Node<Value> head;
     private Node<Value> tail;
@@ -45,5 +47,51 @@ public class Queue<Value> {
 
     public boolean isEmpty(){
         return length == 0;
+    }
+
+    @Override
+    public Iterator<Value> iterator() {
+        return new queueIterator();
+    }
+
+    private class queueIterator implements Iterator<Value>{
+
+        private int index;
+        private Node<Value> now = head;
+
+        @Override
+        public boolean hasNext() {
+            return index != length;
+        }
+
+        @Override
+        public Value next() {
+            if (index < length){
+                Value value = now.value;
+                now = now.next;
+                index++;
+                return value;
+            }else {
+                return null;
+            }
+        }
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder strB = new StringBuilder();
+        strB.append("[");
+        Node<Value> now = head;
+        while (now != null){
+            if (now == head){
+                strB.append(now.value);
+            }else {
+                strB.append(", ");
+                strB.append(now.value);
+            }
+            now = now.front;
+        }
+        strB.append("]");
+        return strB.toString();
     }
 }
