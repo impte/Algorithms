@@ -31,7 +31,6 @@ public class SymbolGraph {
         for (String name: st.keySet()){
             keys[st.get(name)] = name;
         }
-
         G = new Graph(st.size());
 
         fr = new FileReader(path);

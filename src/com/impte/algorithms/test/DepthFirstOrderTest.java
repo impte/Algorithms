@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class DepthFirstOrderTest {
     public static void main(String[] args) throws IOException {
-        In in = new In("C:\\Users\\xutong\\Desktop\\test txt\\ddfs3.txt");
+        In in = new In("C:\\Users\\xutong\\Desktop\\test\\ddfs3.txt");
         Digarph G = new Digarph(in);
         DepthFirstOrder dfo = new DepthFirstOrder(G);
         System.out.println(dfo.pre());

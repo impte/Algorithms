@@ -24,7 +24,42 @@ public class SymbolDigraph {
                     map.put(anA, map.size());
                 }
             }
-            line
+            line = br.readLine();
         }
+
+        keys = new String[map.size()];
+        for (String name: map.keySet()){
+            keys[map.get(name)] = name;
+        }
+
+        G = new Digarph(map.size());
+        fr = new FileReader(path);
+        br = new BufferedReader(fr);
+
+        line = br.readLine();
+        while (line != null){
+            String[] a = line.split(sp);
+            int v = map.get(a[0]);
+            for (int i=1; i<a.length; i++){
+                G.addEdge(v, map.get(a[i]));
+            }
+            line = br.readLine();
+        }
+    }
+
+    public boolean contains(String s){
+        return map.containsKey(s);
+    }
+
+    public int index(String s){
+        return map.get(s);
+    }
+
+    public String name(int index){
+        return keys[index];
+    }
+
+    public Digarph G(){
+        return G;
     }
 }
